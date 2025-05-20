@@ -1,1 +1,4 @@
-Brain_Tumor_Data_Set/
+Brain_Tumor_Data_Set/*
+
+!Brain_Tumor_Data_Set/Brain_Tumor_Data_Set/test_brain_tumor/**
+!Brain_Tumor_Data_Set/Brain_Tumor_Data_Set/test_healthy/**
