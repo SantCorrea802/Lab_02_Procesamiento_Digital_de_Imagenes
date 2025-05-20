@@ -79,7 +79,7 @@ def showPredHOG():
     # comprobamos si estamos en la carpeta del modelo o no, para poder cargar el modelo
 
     
-    if os.listdir(path_model)[-1] == "Model":
+    if "Model"  in os.listdir(path_model):
         path_model = os.path.join(path_model, "Model" ,"svm_brain_model_hog.joblib")
     else:
         path_model = os.path.join(path_model, "svm_brain_model_hog.joblib")
@@ -109,7 +109,7 @@ def showPredLBP():
     # comprobamos si estamos en la carpeta del modelo o no, para poder cargar el modelo
 
     
-    if os.listdir(path_model)[-1] == "Model":
+    if "Model"  in os.listdir(path_model):
         path_model = os.path.join(path_model, "Model" ,"svm_brain_model_lbp.joblib")
     else:
         path_model = os.path.join(path_model, "svm_brain_model_lbp.joblib")
