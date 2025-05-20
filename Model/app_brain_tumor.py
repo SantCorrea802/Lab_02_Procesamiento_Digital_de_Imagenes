@@ -6,26 +6,32 @@ import os
 import joblib
 from skimage.feature import local_binary_pattern
 import numpy as np
+from PIL import ImageTk, Image # para poder mostrar la imagen en la ventana de tkinter
 
 IMG_PATH = ""
+panel_img = None; # imagen mostrada la inicializamos en None
 
 def loadImgLBP():
-    global IMG_PATH
+    global IMG_PATH, panel_img
   # filedialog.askopenfilename(initialdir='/', title='Select file', filetypes=(('Text files', '*.txt'), ('all files', '*.*')))
     ruta_img = filedialog.askopenfilename(title="Selecciona una imagen", filetypes=(("Images files", "*.jpg"), ("PNG file", "*.png"), ("TIF files", "*.tif")))
     
     if ruta_img:
+        IMG_PATH = ruta_img
         img_show = cv2.imread(ruta_img)
-        img_show = cv2.resize(img_show, (640,640))
-        while True:
-            
-            cv2.putText(img_show, "Presiona la tecla ESC para cerrar la imagen",  (10,35), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
-            cv2.imshow("Imagen seleccionada", img_show)
-            
-            key = cv2.waitKey(0) & 0xFF
-            if key == 27:
-                IMG_PATH = ruta_img
-                break
+        img_show = cv2.resize(img_show, (200,200))
+        img_show = cv2.cvtColor(img_show, cv2.COLOR_BGR2RGB)
+        img_pillow = Image.fromarray(img_show)
+        img_tk = ImageTk.PhotoImage(img_pillow)
+
+        #si ya hay imagen mostrada, actualizarla, sino crear label
+        if panel_img is None:
+            panel_img = tk.Label(window, image=img_tk)
+            panel_img.image = img_tk
+            panel_img.pack() #motrar la imagen
+        else:
+            panel_img.configure(image=img_tk)
+            panel_img.image = img_tk
                 
     else:
         print("\n\tERROR AL SELECCIONAR LA IMAGEN\n")
@@ -35,22 +41,26 @@ def loadImgLBP():
     showPredLBP()
 
 def loadImgHOG():
-    global IMG_PATH
+    global IMG_PATH, panel_img
   # filedialog.askopenfilename(initialdir='/', title='Select file', filetypes=(('Text files', '*.txt'), ('all files', '*.*')))
     ruta_img = filedialog.askopenfilename(title="Selecciona una imagen", filetypes=(("Images files", "*.jpg"), ("PNG file", "*.png"), ("TIF files", "*.tif")))
     
     if ruta_img:
+        IMG_PATH = ruta_img
         img_show = cv2.imread(ruta_img)
-        img_show = cv2.resize(img_show, (640,640))
-        while True:
-            
-            cv2.putText(img_show, "Presiona la tecla ESC para cerrar la imagen",  (10,35), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
-            cv2.imshow("Imagen seleccionada", img_show)
-            
-            key = cv2.waitKey(0) & 0xFF
-            if key == 27:
-                IMG_PATH = ruta_img
-                break
+        img_show = cv2.resize(img_show, (200,200))
+        img_show = cv2.cvtColor(img_show, cv2.COLOR_BGR2RGB)
+        img_pillow = Image.fromarray(img_show)
+        img_tk = ImageTk.PhotoImage(img_pillow)
+
+        #si ya hay imagen mostrada, actualizarla, sino crear label
+        if panel_img is None:
+            panel_img = tk.Label(window, image=img_tk)
+            panel_img.image = img_tk
+            panel_img.pack() #motrar la imagen
+        else:
+            panel_img.configure(image=img_tk)
+            panel_img.image = img_tk
                 
     else:
         print("\n\tERROR AL SELECCIONAR LA IMAGEN\n")
