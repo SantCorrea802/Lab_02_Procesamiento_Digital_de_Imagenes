@@ -8,7 +8,7 @@ Este proyecto utiliza el set de datos *Brain Tumor Dataset* para detectar cuando
 
 ## NOTA
 No es necesario descargar el dataset desde Kaggle, el repositorio ya cuenta con el set de datos de test_brain_tumor y test_healthy para poder probar el programa (archivo .py) tampoco se deben ejecutar los .ipynb ya que estos se ejecutan con respecto al dataset original de kaggle para poder realizar el EDA y entrenamiento de los modelos. Si desea ejecutar los nootbooks asegurese de tener la siguiente configuracion del set de datos:
-
+```
 Carpeta_principal/
 ├── Brain_Tumor_Data_Set/
 │ ├── Brain_Tumor_Data_Set/
@@ -26,6 +26,7 @@ Carpeta_principal/
 │
 ├── .gitignore # Archivo para ignorar archivos/carpetas en Git
 └── README.md # Archivo de documentación principal
+```
 
 ## Orden de ejecución
 Asegurese de ejecutar los notebooks en el siguiente orden
