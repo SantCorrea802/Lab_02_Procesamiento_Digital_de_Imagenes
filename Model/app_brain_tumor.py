@@ -14,7 +14,8 @@ panel_img = None; # imagen mostrada la inicializamos en None
 def loadImgLBP():
     global IMG_PATH, panel_img
   # filedialog.askopenfilename(initialdir='/', title='Select file', filetypes=(('Text files', '*.txt'), ('all files', '*.*')))
-    ruta_img = filedialog.askopenfilename(title="Selecciona una imagen", filetypes=(("Images files", "*.jpg"), ("PNG file", "*.png"), ("TIF files", "*.tif")))
+    ruta_img = filedialog.askopenfilename(title="Selecciona una imagen",
+                                          filetypes=(("Images files", "*.jpg"), ("PNG file", "*.png"), ("TIF files", "*.tif")))
     
     if ruta_img:
         IMG_PATH = ruta_img
@@ -133,7 +134,7 @@ def showPredLBP():
         result_text.set("El diagnostico es: Cerebro sano")
 
 window = tk.Tk() # creamos la ventana
-window.title("Ventana de prueba") # ponemos el titulo
+window.title("Brain Tumor") # ponemos el titulo
 window.geometry("400x400") #tamaño de la ventana
 result_text = tk.StringVar() # preparamos el texto del resultado obtenido al usar el modelo (cancer o sano)
 result_label = tk.Label(window, textvariable=result_text, font=("Arial",14))
